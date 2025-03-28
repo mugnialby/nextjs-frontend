@@ -1,13 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import Sidebar from "@/components/ui/sidebar";
 import { useState } from "react";
 
 export default function Dashboard() {
-    const router = useRouter();
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
@@ -17,15 +15,9 @@ export default function Dashboard() {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
-
-    const handleLogout = () => {
-        // Implement your logout logic here (e.g., clear cookies, tokens)
-        console.log("Logging out...");
-        router.push("/login"); // Redirect to login page
-    };
+    // const toggleDropdown = () => {
+    //     setIsDropdownOpen(!isDropdownOpen);
+    // };
 
     return (
         <>
@@ -62,7 +54,8 @@ export default function Dashboard() {
             </nav>
 
             <div className="flex">
-                <aside
+                <Sidebar />
+                {/* <aside
                     className={`w-60 min-h-screen p-3 flex flex-col ${
                         isDarkMode ? "bg-gray-600" : "bg-gray-200"
                     } ${isSidebarOpen ? "block" : "hidden"}`}
@@ -149,14 +142,7 @@ export default function Dashboard() {
                             </a>
                         </li>
                     </ul>
-                </aside>
-
-                <main className={`flex-1 p-4`}>
-                    <h1 className="text-2xl font-semibold mb-4">
-                        Welcome to the Dashboard
-                    </h1>
-                    <p>This is your main dashboard content.</p>
-                </main>
+                </aside> */}
             </div>
         </>
     );

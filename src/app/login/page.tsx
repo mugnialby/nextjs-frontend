@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Login() {
-    const router = useRouter()
+    const router = useRouter();
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
     // const [error, setError] = useState<string | null>(null);
@@ -14,7 +14,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            router.push('/dashboard'); // Redirect to /dashboard
+            router.push("/admin/home"); // Redirect to /dashboard
             // const res = await fetch("/api/login", {
             //     method: "POST",
             //     body: JSON.stringify({
